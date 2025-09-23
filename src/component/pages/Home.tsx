@@ -1,3 +1,5 @@
+import './style/home.css';
+
 import React from 'react';
 
 // Plus besoin d'importer un fichier de style ici
