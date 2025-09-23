@@ -5,6 +5,8 @@ export function Navbar() {
     <div>
       <Link to={"/"}>Acceuil</Link>
       <Link to={"/news"}>Actualité</Link>
+      <Link to={"/event"}>evenement</Link>
+      <Link to={"/admin"}>admindashboard</Link>
     </div>
   );
 }
