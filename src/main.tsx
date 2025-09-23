@@ -6,7 +6,7 @@ import "./index.css";
 import { Home } from "./component/pages/Home.tsx";
 import { About } from "./component/pages/About.tsx";
 import { News } from "./component/pages/News.tsx";
-import { Event } from "./component/pages/Event.tsx";
+import { Event } from "./component/pages/Event.tsx"; 
 
 const router = createBrowserRouter([
   {
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
-      },
+      }, 
     ],
   },
   // {
