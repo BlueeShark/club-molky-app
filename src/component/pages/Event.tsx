@@ -1,6 +1,7 @@
 import React from 'react';
 import './envent.css';
 import { Carte } from '../atoms/carte'; 
+import { AdminDashboard } from './AdminDashboard';
 
 export function Event() {
   return (
@@ -22,12 +23,15 @@ export function Event() {
         </select>
         <select name="Date2" id="un" className='select' aria-label="Date">
           <option value="">Tournois</option>
+
         </select>
       </div>
       <div className='cartesss'>
         <Carte />
         <Carte />
       </div>
+
+      <AdminDashboard></AdminDashboard>
     </div>
   );
 }
