@@ -1,16 +1,15 @@
 main {
-  flex: 1;             /* prend tout l’espace restant */
+  flex: 1; /* prend tout l’espace restant */
   display: flex;
   flex-direction: column;
 }
 
-
-#root > div { /* le conteneur principal de ta page, souvent un div dans root */
+#root > div {
+  /* le conteneur principal de ta page, souvent un div dans root */
   flex: 1; /* occupe tout l’espace vertical sauf footer */
   display: flex;
   flex-direction: column;
 }
-
 
 footer {
   background-color: #000; /* noir */
@@ -23,7 +22,7 @@ footer {
 footer .container {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex; 
+  display: flex;
   flex-wrap: wrap;
   justify-content: center; /* centre horizontalement les sections */
   gap: 2rem;
@@ -101,80 +100,78 @@ footer .bottom-line {
   }
 }
 
-
-
 /* Conteneur principal de la page */
 .home-page-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 /* Style de l'en-tête principal */
 .home-header {
-    text-align: center;
-    margin-bottom: 60px;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
 .home-header h1 {
-    font-size: 2.5rem;
-    color: #2c3e50;
+  font-size: 2.5rem;
+  color: #2c3e50;
 }
 
 /* Section d'information (notre layout 2 colonnes) */
 .info-section {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    margin-bottom: 80px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 80px;
 }
 
 /* Modificateur pour alterner : image à gauche, texte à droite */
 .info-section.reversed {
-    flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 /* Conteneurs texte et image */
 .info-texte {
-    flex: 1;
+  flex: 1;
 }
 
 .info-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .info-image img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Typographie dans les sections */
 .info-texte h2 {
-    font-size: 2rem;
-    color: #34495e;
-    margin-bottom: 15px;
+  font-size: 2rem;
+  color: #34495e;
+  margin-bottom: 15px;
 }
 
 .info-texte p {
-    line-height: 1.7;
-    color: #555;
+  line-height: 1.7;
+  color: #555;
 }
 
 /* RESPONSIVITÉ pour mobile */
 @media (max-width: 768px) {
-    .info-section,
-    .info-section.reversed {
-        flex-direction: column;
-        text-align: center;
-    }
+  .info-section,
+  .info-section.reversed {
+    flex-direction: column;
+    text-align: center;
+  }
 
-    .home-header h1 {
-        font-size: 2rem;
-    }
+  .home-header h1 {
+    font-size: 2rem;
+  }
 }

@@ -1,34 +1,34 @@
-import App from "./App.tsx";
-import { StrictMode } from "react";
-import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
-import { Home } from "./component/pages/Home.tsx";
-import { About } from "./component/pages/About.tsx";
-import { News } from "./component/pages/News.tsx";
-import { Event } from "./component/pages/Event.tsx"; 
+import App from './App.tsx';
+import { StrictMode } from 'react';
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import './index.css';
+import { Home } from './component/pages/Home.tsx';
+import { About } from './component/pages/About.tsx';
+import { News } from './component/pages/News.tsx';
+import { Event } from './component/pages/Event.tsx';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     children: [
       {
-        path: "/",
+        path: '/',
         element: <Home />,
       },
       {
-        path: "/news",
+        path: '/news',
         element: <News />,
       },
       {
-        path: "/event",
+        path: '/event',
         element: <Event />,
       },
       {
-        path: "/about",
+        path: '/about',
         element: <About />,
-      }, 
+      },
     ],
   },
   // {
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
   // }
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <RouterProvider router={router} />
   </StrictMode>
