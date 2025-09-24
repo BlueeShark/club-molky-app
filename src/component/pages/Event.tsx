@@ -1,7 +1,6 @@
 import React from 'react';
-import './envent.css';
-import { Carte } from '../atoms/carte'; 
-import { AdminDashboard } from './AdminDashboard';
+import '../pages/style/envent.css';
+import { Carte } from '../atoms/carte';  
 
 export function Event() {
   return (
@@ -30,8 +29,7 @@ export function Event() {
         <Carte />
         <Carte />
       </div>
-
-      <AdminDashboard></AdminDashboard>
+ 
     </div>
   );
 }
