@@ -1,0 +1,17 @@
+.imgs {
+  width: 150%;
+  background-size: cover;
+  height: 800px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  background-image: url('../../../assets/a.jpeg');
+}
+
+.carte {
+  justify-content: center;
+  align-items: center;
+  display: block;
+  flex-direction: column;
+  background-color: #19598d;
+  padding: 20px;
+}

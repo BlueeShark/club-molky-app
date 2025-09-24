@@ -13,7 +13,9 @@ export function AdminLayout() {
   return (
     <div className="admin-layout">
       <AdminSidebar isOpen={sidebarOpen} onToggle={toggleSidebar} />
-      <main className={`admin-main ${sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
+      <main
+        className={`admin-main ${sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}
+      >
         <div className="admin-header">
           <button className="sidebar-toggle" onClick={toggleSidebar}>
             ☰

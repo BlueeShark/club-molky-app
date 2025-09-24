@@ -1,3 +1,5 @@
+import React from 'react';
+
 /**
  * ATOM: Champ de formulaire réutilisable
  * Utilisé pour tous les inputs, textareas et selects
@@ -5,10 +7,23 @@
 
 interface FormFieldProps {
   label?: string;
-  type?: 'text' | 'email' | 'password' | 'number' | 'date' | 'time' | 'url';
+  type?:
+    | 'text'
+    | 'email'
+    | 'password'
+    | 'number'
+    | 'date'
+    | 'time'
+    | 'url'
+    | 'textarea'
+    | 'select';
   placeholder?: string;
   value: string | number;
-  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
+  onChange: (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => void;
   error?: string;
   required?: boolean;
   disabled?: boolean;
@@ -38,7 +53,7 @@ export function FormField({
   min,
   max,
   step,
-  options
+  options,
 }: FormFieldProps) {
   const fieldId = id || name;
   const hasError = Boolean(error);
@@ -46,8 +61,10 @@ export function FormField({
   const inputClasses = [
     'form-input',
     hasError ? 'form-input--error' : '',
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   const renderInput = () => {
     if (type === 'textarea' || rows) {

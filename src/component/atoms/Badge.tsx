@@ -16,7 +16,7 @@ export function Badge({
   label,
   variant = 'info',
   size = 'md',
-  className = ''
+  className = '',
 }: BadgeProps) {
   const baseClasses = 'badge';
   const variantClasses = {
@@ -24,20 +24,22 @@ export function Badge({
     warning: 'badge--warning',
     error: 'badge--error',
     info: 'badge--info',
-    secondary: 'badge--secondary'
+    secondary: 'badge--secondary',
   };
   const sizeClasses = {
     sm: 'badge--sm',
     md: 'badge--md',
-    lg: 'badge--lg'
+    lg: 'badge--lg',
   };
 
   const classes = [
     baseClasses,
     variantClasses[variant],
     sizeClasses[size],
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <span className={classes} data-status={status}>

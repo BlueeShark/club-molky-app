@@ -3,7 +3,7 @@
  * Utilisé pour les détails (date, lieu, participants, etc.)
  */
 
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 interface IconTextProps {
   icon: ReactNode;
@@ -16,19 +16,17 @@ export function IconText({
   icon,
   text,
   className = '',
-  direction = 'horizontal'
+  direction = 'horizontal',
 }: IconTextProps) {
   const baseClasses = 'icon-text';
   const directionClasses = {
     horizontal: 'icon-text--horizontal',
-    vertical: 'icon-text--vertical'
+    vertical: 'icon-text--vertical',
   };
 
-  const classes = [
-    baseClasses,
-    directionClasses[direction],
-    className
-  ].filter(Boolean).join(' ');
+  const classes = [baseClasses, directionClasses[direction], className]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div className={classes}>

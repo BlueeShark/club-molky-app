@@ -1,3 +1,4 @@
+import React from 'react';
 /**
  * ATOM: Bouton de base réutilisable
  * Utilisé dans toute l'application pour les actions principales
@@ -22,18 +23,18 @@ export function Button({
   onClick,
   children,
   type = 'button',
-  className = ''
+  className = '',
 }: ButtonProps) {
   const baseClasses = 'btn';
   const variantClasses = {
     primary: 'btn-primary',
     secondary: 'btn-secondary',
-    danger: 'btn-danger'
+    danger: 'btn-danger',
   };
   const sizeClasses = {
     sm: 'btn-sm',
     md: 'btn-md',
-    lg: 'btn-lg'
+    lg: 'btn-lg',
   };
 
   const classes = [
@@ -42,8 +43,10 @@ export function Button({
     sizeClasses[size],
     loading ? 'btn-loading' : '',
     disabled ? 'btn-disabled' : '',
-    className
-  ].filter(Boolean).join(' ');
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <button

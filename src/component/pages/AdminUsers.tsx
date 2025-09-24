@@ -19,7 +19,7 @@ export function AdminUsers() {
       email: 'jean.dupont@email.com',
       role: 'Membre',
       status: 'active',
-      joinDate: '2024-01-15'
+      joinDate: '2024-01-15',
     },
     {
       id: 2,
@@ -27,7 +27,7 @@ export function AdminUsers() {
       email: 'marie.martin@email.com',
       role: 'Administrateur',
       status: 'active',
-      joinDate: '2024-01-10'
+      joinDate: '2024-01-10',
     },
     {
       id: 3,
@@ -35,29 +35,37 @@ export function AdminUsers() {
       email: 'pierre.durand@email.com',
       role: 'Membre',
       status: 'inactive',
-      joinDate: '2024-01-05'
-    }
+      joinDate: '2024-01-05',
+    },
   ]);
 
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredUsers = users.filter(user =>
-    user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    user.email.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredUsers = users.filter(
+    user =>
+      user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      user.email.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const handleDeleteUser = (userId: number) => {
-    if (window.confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
+    if (
+      window.confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')
+    ) {
       setUsers(users.filter(user => user.id !== userId));
     }
   };
 
   const handleToggleStatus = (userId: number) => {
-    setUsers(users.map(user =>
-      user.id === userId
-        ? { ...user, status: user.status === 'active' ? 'inactive' : 'active' }
-        : user
-    ));
+    setUsers(
+      users.map(user =>
+        user.id === userId
+          ? {
+              ...user,
+              status: user.status === 'active' ? 'inactive' : 'active',
+            }
+          : user
+      )
+    );
   };
 
   return (
@@ -77,7 +85,7 @@ export function AdminUsers() {
             type="text"
             placeholder="Rechercher par nom ou email..."
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={e => setSearchTerm(e.target.value)}
           />
         </div>
       </div>
@@ -116,7 +124,9 @@ export function AdminUsers() {
                     <button
                       className="btn-icon"
                       onClick={() => handleToggleStatus(user.id)}
-                      title={user.status === 'active' ? 'Désactiver' : 'Activer'}
+                      title={
+                        user.status === 'active' ? 'Désactiver' : 'Activer'
+                      }
                     >
                       <FaPen />
                     </button>

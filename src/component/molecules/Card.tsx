@@ -3,14 +3,14 @@
  * Utilisée pour afficher les événements, actualités, utilisateurs
  */
 
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../atoms/Button';
 import { Badge } from '../atoms/Badge';
 import { IconText } from '../atoms/IconText';
 
 interface CardProps {
-  id: number;
+  _id: number;
   title: string;
   status: string;
   details: { icon: ReactNode; text: string }[];
@@ -25,12 +25,12 @@ interface CardProps {
 }
 
 export function Card({
-  id,
+  _id,
   title,
   status,
   details,
   actions,
-  className = ''
+  className = '',
 }: CardProps) {
   const getStatusVariant = (status: string) => {
     switch (status.toLowerCase()) {
@@ -54,7 +54,6 @@ export function Card({
 
   const renderAction = (action: CardProps['actions'][0], index: number) => {
     const buttonProps = {
-      key: index,
       variant: action.variant,
       onClick: action.onClick,
       children: (
@@ -63,7 +62,7 @@ export function Card({
           {action.label}
         </>
       ),
-      className: 'card-action'
+      className: 'card-action',
     };
 
     if (action.to) {
@@ -100,9 +99,7 @@ export function Card({
         ))}
       </div>
 
-      <div className="card__actions">
-        {actions.map(renderAction)}
-      </div>
+      <div className="card__actions">{actions.map(renderAction)}</div>
     </div>
   );
 }
