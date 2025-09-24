@@ -9,7 +9,7 @@ export const Footer = () => {
         {/* Navigation */}
         <nav>
           <h3>Navigation</h3>
-          <br/>
+          <br />
           <ul>
             <li>
               <Link to="/about">À propos</Link>
@@ -33,7 +33,9 @@ export const Footer = () => {
             </li>
             <li>
               <FaEnvelope />
-              <a href="mailto:contact.crhom@gmail.com">contact.crhom@gmail.com</a>
+              <a href="mailto:contact.crhom@gmail.com">
+                contact.crhom@gmail.com
+              </a>
             </li>
           </ul>
         </div>
