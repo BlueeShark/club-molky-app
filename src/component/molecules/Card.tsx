@@ -5,8 +5,8 @@
 
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '../atoms/Button';
 import { Badge } from '../atoms/Badge';
+import { Button } from '../atoms/Button';
 import { IconText } from '../atoms/IconText';
 
 interface CardProps {
@@ -25,7 +25,6 @@ interface CardProps {
 }
 
 export function Card({
-  _id,
   title,
   status,
   details,

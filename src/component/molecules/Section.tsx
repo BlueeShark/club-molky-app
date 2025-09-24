@@ -3,7 +3,7 @@
  * Utilisée pour les sections avec titre et actions
  */
 
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { Button } from '../atoms/Button';
 
 interface SectionProps {
