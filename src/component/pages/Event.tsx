@@ -1,4 +1,5 @@
 import { Carte } from '../atoms/carte';
+import { AdminDashboard } from './AdminDashboard';
 import './envent.css';
 
 export function Event() {
@@ -27,6 +28,8 @@ export function Event() {
         <Carte />
         <Carte />
       </div>
+
+      <AdminDashboard></AdminDashboard>
     </div>
   );
 }
