@@ -1,7 +1,6 @@
-
-import { Link } from "react-router-dom";
-import { FaFacebook, FaPhone, FaEnvelope } from "react-icons/fa";
-import "./styles/footer.css";
+import { Link } from 'react-router-dom';
+import { FaFacebook, FaPhone, FaEnvelope } from 'react-icons/fa';
+import './styles/footer.css';
 
 export const Footer = () => {
   return (
@@ -10,7 +9,7 @@ export const Footer = () => {
         {/* Navigation */}
         <nav>
           <h3>Navigation</h3>
-          <br/>
+          <br />
           <ul>
             <li>
               <Link to="/about">À propos</Link>
@@ -34,7 +33,9 @@ export const Footer = () => {
             </li>
             <li>
               <FaEnvelope />
-              <a href="mailto:contact.crhom@gmail.com">contact.crhom@gmail.com</a>
+              <a href="mailto:contact.crhom@gmail.com">
+                contact.crhom@gmail.com
+              </a>
             </li>
           </ul>
         </div>

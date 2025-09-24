@@ -2,11 +2,11 @@
   background-color: white; /* fond blanc */
   padding: 15px 30px;
   display: flex;
-  align-items: center;       /* aligne verticalement logo et liens */
+  align-items: center; /* aligne verticalement logo et liens */
   justify-content: flex-start; /* logo à gauche, liens à droite */
   border-bottom: 2px solid #ddd;
-  border-color:white;
-  margin-top: 20px;         /* espace par rapport au haut de la page */
+  border-color: white;
+  margin-top: 20px; /* espace par rapport au haut de la page */
   position: relative; /* pour le centrage relatif */
 }
 
@@ -17,10 +17,10 @@
 
 .nav-links {
   display: flex;
-  gap: 70px;    
+  gap: 70px;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%); /* centre horizontalement */           
+  transform: translateX(-50%); /* centre horizontalement */
 }
 
 .nav-link {
@@ -32,6 +32,5 @@
 }
 
 .nav-link:hover {
-  color: #11F2C1;
+  color: #11f2c1;
 }
-
