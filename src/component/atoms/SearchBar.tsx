@@ -1,3 +1,5 @@
+import React from 'react';
+
 /**
  * ATOM: Barre de recherche réutilisable
  * Utilisée dans les pages de gestion (utilisateurs, événements, actualités)
@@ -14,7 +16,7 @@ export function SearchBar({
   placeholder = 'Rechercher...',
   value,
   onChange,
-  className = ''
+  className = '',
 }: SearchBarProps) {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);

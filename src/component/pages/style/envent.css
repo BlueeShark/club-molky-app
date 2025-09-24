@@ -9,18 +9,16 @@
   border-radius: 0px 35px 35px 0px;
   height: 35px;
 }
-.headers{
-    font-size: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #146CE6;
-    text-align: center;
-    padding-top: 7em;
-    background-image: url(../../assets/h.png);
-    background-attachment: fixed;
-    background-size: cover; 
-    
-    height: 500px;
-    
+.headers {
+  font-size: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #146ce6;
+  text-align: center;
+  padding-top: 7em;
+  background-image: url(../../assets/h.png);
+  background-attachment: fixed;
+  background-size: cover;
+  height: 500px;
 }
 .search {
   height: 35px;

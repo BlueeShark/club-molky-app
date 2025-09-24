@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft, FaFloppyDisk, FaXmark } from 'react-icons/fa6';
 import './style/admin.css';
@@ -26,22 +26,26 @@ export function CreateEvent() {
     maxParticipants: '20',
     category: 'competition',
     status: 'upcoming',
-    imageUrl: ''
+    imageUrl: '',
   });
 
   const [errors, setErrors] = useState<Partial<EventFormData>>({});
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
     // Clear error when user starts typing
     if (errors[name as keyof EventFormData]) {
       setErrors(prev => ({
         ...prev,
-        [name]: undefined
+        [name]: undefined,
       }));
     }
   };
@@ -50,11 +54,13 @@ export function CreateEvent() {
     const newErrors: Partial<EventFormData> = {};
 
     if (!formData.title.trim()) newErrors.title = 'Le titre est requis';
-    if (!formData.description.trim()) newErrors.description = 'La description est requise';
+    if (!formData.description.trim())
+      newErrors.description = 'La description est requise';
     if (!formData.date) newErrors.date = 'La date est requise';
     if (!formData.time) newErrors.time = "L'heure est requise";
     if (!formData.location.trim()) newErrors.location = 'Le lieu est requis';
-    if (Number(formData.maxParticipants) < 1) newErrors.maxParticipants = 'Le nombre de participants doit être positif';
+    if (Number(formData.maxParticipants) < 1)
+      newErrors.maxParticipants = 'Le nombre de participants doit être positif';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -108,7 +114,9 @@ export function CreateEvent() {
               className={errors.title ? 'error' : ''}
               placeholder="Ex: Championnat de Mölkky 2024"
             />
-            {errors.title && <span className="error-message">{errors.title}</span>}
+            {errors.title && (
+              <span className="error-message">{errors.title}</span>
+            )}
           </div>
 
           <div className="form-group">
@@ -122,7 +130,9 @@ export function CreateEvent() {
               rows={4}
               placeholder="Décrivez l'événement en détail..."
             />
-            {errors.description && <span className="error-message">{errors.description}</span>}
+            {errors.description && (
+              <span className="error-message">{errors.description}</span>
+            )}
           </div>
 
           <div className="form-group">
@@ -156,7 +166,9 @@ export function CreateEvent() {
                 onChange={handleInputChange}
                 className={errors.date ? 'error' : ''}
               />
-              {errors.date && <span className="error-message">{errors.date}</span>}
+              {errors.date && (
+                <span className="error-message">{errors.date}</span>
+              )}
             </div>
 
             <div className="form-group">
@@ -169,7 +181,9 @@ export function CreateEvent() {
                 onChange={handleInputChange}
                 className={errors.time ? 'error' : ''}
               />
-              {errors.time && <span className="error-message">{errors.time}</span>}
+              {errors.time && (
+                <span className="error-message">{errors.time}</span>
+              )}
             </div>
           </div>
 
@@ -184,11 +198,15 @@ export function CreateEvent() {
               className={errors.location ? 'error' : ''}
               placeholder="Ex: Stade municipal, Paris"
             />
-            {errors.location && <span className="error-message">{errors.location}</span>}
+            {errors.location && (
+              <span className="error-message">{errors.location}</span>
+            )}
           </div>
 
           <div className="form-group">
-            <label htmlFor="maxParticipants">Nombre maximum de participants *</label>
+            <label htmlFor="maxParticipants">
+              Nombre maximum de participants *
+            </label>
             <input
               type="number"
               id="maxParticipants"
@@ -198,7 +216,9 @@ export function CreateEvent() {
               min="1"
               className={errors.maxParticipants ? 'error' : ''}
             />
-            {errors.maxParticipants && <span className="error-message">{errors.maxParticipants}</span>}
+            {errors.maxParticipants && (
+              <span className="error-message">{errors.maxParticipants}</span>
+            )}
           </div>
         </div>
 
@@ -234,7 +254,11 @@ export function CreateEvent() {
         </div>
 
         <div className="form-actions">
-          <button type="button" className="btn-secondary" onClick={handleCancel}>
+          <button
+            type="button"
+            className="btn-secondary"
+            onClick={handleCancel}
+          >
             <FaXmark /> Annuler
           </button>
           <button type="submit" className="btn-primary">

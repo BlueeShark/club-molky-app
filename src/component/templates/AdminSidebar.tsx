@@ -6,7 +6,7 @@ import {
   FaNewspaper,
   FaGear,
   FaArrowRightFromBracket,
-  FaBars
+  FaBars,
 } from 'react-icons/fa6';
 
 interface AdminSidebarProps {
@@ -34,7 +34,9 @@ export function AdminSidebar({ isOpen, onToggle }: AdminSidebarProps) {
           <li>
             <NavLink
               to="/admin"
-              className={({ isActive }) => `navlink ${isActive ? 'active' : ''}`}
+              className={({ isActive }) =>
+                `navlink ${isActive ? 'active' : ''}`
+              }
               end
             >
               <FaChartSimple />
@@ -44,7 +46,9 @@ export function AdminSidebar({ isOpen, onToggle }: AdminSidebarProps) {
           <li>
             <NavLink
               to="/admin/users"
-              className={({ isActive }) => `navlink ${isActive ? 'active' : ''}`}
+              className={({ isActive }) =>
+                `navlink ${isActive ? 'active' : ''}`
+              }
             >
               <FaUsers />
               {isOpen && <span>Utilisateurs</span>}
@@ -53,7 +57,9 @@ export function AdminSidebar({ isOpen, onToggle }: AdminSidebarProps) {
           <li>
             <NavLink
               to="/admin/events"
-              className={({ isActive }) => `navlink ${isActive ? 'active' : ''}`}
+              className={({ isActive }) =>
+                `navlink ${isActive ? 'active' : ''}`
+              }
             >
               <FaCalendar />
               {isOpen && <span>Événements</span>}
@@ -62,7 +68,9 @@ export function AdminSidebar({ isOpen, onToggle }: AdminSidebarProps) {
           <li>
             <NavLink
               to="/admin/news"
-              className={({ isActive }) => `navlink ${isActive ? 'active' : ''}`}
+              className={({ isActive }) =>
+                `navlink ${isActive ? 'active' : ''}`
+              }
             >
               <FaNewspaper />
               {isOpen && <span>Actualités</span>}
@@ -71,7 +79,9 @@ export function AdminSidebar({ isOpen, onToggle }: AdminSidebarProps) {
           <li>
             <NavLink
               to="/admin/settings"
-              className={({ isActive }) => `navlink ${isActive ? 'active' : ''}`}
+              className={({ isActive }) =>
+                `navlink ${isActive ? 'active' : ''}`
+              }
             >
               <FaGear />
               {isOpen && <span>Paramètres</span>}
