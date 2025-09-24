@@ -3,7 +3,7 @@
  * Utilisée pour afficher les statistiques dans le dashboard
  */
 
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 interface StatCardProps {
   icon: ReactNode;
@@ -24,13 +24,11 @@ export function StatCard({
   value,
   subtitle,
   trend,
-  className = ''
+  className = '',
 }: StatCardProps) {
   return (
     <div className={`stat-card ${className}`}>
-      <div className="stat-card__icon">
-        {icon}
-      </div>
+      <div className="stat-card__icon">{icon}</div>
       <div className="stat-card__content">
         <h3 className="stat-card__value">{value}</h3>
         <p className="stat-card__title">{title}</p>
@@ -38,7 +36,11 @@ export function StatCard({
         {trend && (
           <div className={`stat-card__trend stat-card__trend--${trend.type}`}>
             <span className="stat-card__trend-value">
-              {trend.type === 'positive' ? '+' : trend.type === 'negative' ? '-' : ''}
+              {trend.type === 'positive'
+                ? '+'
+                : trend.type === 'negative'
+                  ? '-'
+                  : ''}
               {trend.value}%
             </span>
             <span className="stat-card__trend-label">{trend.label}</span>

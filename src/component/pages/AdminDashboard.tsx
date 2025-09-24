@@ -10,7 +10,7 @@ import {
   FaPlus,
   FaPen,
   FaTrash,
-  FaEye as FaView
+  FaEye as FaView,
 } from 'react-icons/fa6';
 import './style/admin.css';
 
@@ -35,7 +35,7 @@ export function AdminDashboard() {
     totalUsers: 156,
     totalEvents: 23,
     totalNews: 12,
-    activeEvents: 5
+    activeEvents: 5,
   };
 
   const recentActivities = [
@@ -43,47 +43,48 @@ export function AdminDashboard() {
       id: 1,
       type: 'user',
       message: 'Nouvel utilisateur inscrit: Jean Dupont',
-      timestamp: '2024-01-15 14:30'
+      timestamp: '2024-01-15 14:30',
     },
     {
       id: 2,
       type: 'event',
-      message: 'Événement créé: Tournoi d\'hiver 2024',
-      timestamp: '2024-01-15 10:15'
+      message: "Événement créé: Tournoi d'hiver 2024",
+      timestamp: '2024-01-15 10:15',
     },
     {
       id: 3,
       type: 'news',
       message: 'Nouvelle actualité publiée',
-      timestamp: '2024-01-14 16:45'
-    }
+      timestamp: '2024-01-14 16:45',
+    },
   ];
 
   const [events] = useState<Event[]>([
     {
       id: 1,
-      title: 'Tournoi d\'hiver 2024',
-      description: 'Le championnat annuel de Mölkky du club avec des équipes de toute la région.',
+      title: "Tournoi d'hiver 2024",
+      description:
+        'Le championnat annuel de Mölkky du club avec des équipes de toute la région.',
       date: '2024-02-15',
       time: '14:00',
-      location: 'Parc de la Tête d\'Or, Lyon',
+      location: "Parc de la Tête d'Or, Lyon",
       maxParticipants: '32',
       category: 'competition',
       status: 'upcoming',
-      participants: 24
+      participants: 24,
     },
     {
       id: 2,
       title: 'Initiation Mölkky',
-      description: 'Séance d\'initiation gratuite pour les nouveaux membres.',
+      description: "Séance d'initiation gratuite pour les nouveaux membres.",
       date: '2024-01-20',
       time: '10:00',
       location: 'Place Bellecour, Lyon',
       maxParticipants: '20',
       category: 'training',
       status: 'ongoing',
-      participants: 15
-    }
+      participants: 15,
+    },
   ]);
 
   const handleDeleteEvent = (eventId: number) => {
@@ -98,7 +99,7 @@ export function AdminDashboard() {
       upcoming: 'À venir',
       ongoing: 'En cours',
       completed: 'Terminé',
-      cancelled: 'Annulé'
+      cancelled: 'Annulé',
     };
     return labels[status];
   };
@@ -205,7 +206,9 @@ export function AdminDashboard() {
                         </div>
                         <div className="activity-content">
                           <p>{activity.message}</p>
-                          <span className="activity-time">{activity.timestamp}</span>
+                          <span className="activity-time">
+                            {activity.timestamp}
+                          </span>
                         </div>
                       </div>
                     ))}
@@ -223,7 +226,10 @@ export function AdminDashboard() {
                       <FaUsers />
                       <span>Ajouter un utilisateur</span>
                     </button>
-                    <Link to="/admin/events/create" className="action-btn secondary">
+                    <Link
+                      to="/admin/events/create"
+                      className="action-btn secondary"
+                    >
                       <FaCalendar />
                       <span>Créer un événement</span>
                     </Link>
@@ -252,7 +258,9 @@ export function AdminDashboard() {
                   <div key={event.id} className="event-card">
                     <div className="event-header">
                       <h3>{event.title}</h3>
-                      <span className={`status-badge ${getStatusClass(event.status)}`}>
+                      <span
+                        className={`status-badge ${getStatusClass(event.status)}`}
+                      >
                         {getStatusLabel(event.status)}
                       </span>
                     </div>
@@ -260,7 +268,9 @@ export function AdminDashboard() {
                     <div className="event-details">
                       <div className="detail-item">
                         <FaCalendar />
-                        <span>{new Date(event.date).toLocaleDateString('fr-FR')}</span>
+                        <span>
+                          {new Date(event.date).toLocaleDateString('fr-FR')}
+                        </span>
                       </div>
                       <div className="detail-item">
                         <FaView />
@@ -268,15 +278,24 @@ export function AdminDashboard() {
                       </div>
                       <div className="detail-item">
                         <FaUsers />
-                        <span>{event.participants}/{event.maxParticipants} participants</span>
+                        <span>
+                          {event.participants}/{event.maxParticipants}{' '}
+                          participants
+                        </span>
                       </div>
                     </div>
 
                     <div className="event-actions">
-                      <Link to={`/admin/events/${event.id}`} className="btn-secondary">
+                      <Link
+                        to={`/admin/events/${event.id}`}
+                        className="btn-secondary"
+                      >
                         <FaView /> Voir détails
                       </Link>
-                      <Link to={`/admin/events/${event.id}/edit`} className="btn-secondary">
+                      <Link
+                        to={`/admin/events/${event.id}/edit`}
+                        className="btn-secondary"
+                      >
                         <FaPen /> Modifier
                       </Link>
                       <button
@@ -364,7 +383,9 @@ export function AdminDashboard() {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="maxParticipants">Nombre maximum de participants *</label>
+                    <label htmlFor="maxParticipants">
+                      Nombre maximum de participants *
+                    </label>
                     <input
                       type="number"
                       id="maxParticipants"

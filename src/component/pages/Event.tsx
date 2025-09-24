@@ -1,6 +1,7 @@
+
 import { Carte } from '../atoms/carte';
-import { AdminDashboard } from './AdminDashboard';
-import './envent.css';
+import './style/envent.css';
+// import { AdminLogin } from './adminLogin';
 
 export function Event() {
   return (
@@ -14,22 +15,36 @@ export function Event() {
         />
         <button className="btnHome">Rechercher</button>
         <br />
-        <select name="Date2" id="un" className="select" aria-label="Date">
+        <select
+          name="Date2"
+          id="date-select"
+          className="select"
+          aria-label="Date"
+        >
           <option value="">Date</option>
         </select>
-        <select name="Date2" id="un" className="select" aria-label="Date">
+        <select
+          name="Type2"
+          id="type-select"
+          className="select"
+          aria-label="Type"
+        >
           <option value="">Type</option>
         </select>
-        <select name="Date2" id="un" className="select" aria-label="Date">
+        <select
+          name="Tournois2"
+          id="tournois-select"
+          className="select"
+          aria-label="Tournois"
+        >
           <option value="">Tournois</option>
         </select>
+        <div className="cartesss">
+          <Carte />
+          <Carte />
+        </div>
+        {/* <AdminLogin /> */}
       </div>
-      <div className="cartesss">
-        <Carte />
-        <Carte />
-      </div>
-
-      <AdminDashboard></AdminDashboard>
     </div>
   );
 }

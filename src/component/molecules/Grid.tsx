@@ -3,8 +3,7 @@
  * Utilisée pour afficher les listes d'éléments (événements, actualités, utilisateurs)
  */
 
-import { ReactNode } from 'react';
-import { Card } from './Card';
+import type { ReactNode } from 'react';
 
 interface GridProps {
   items: any[];
@@ -19,7 +18,7 @@ export function Grid({
   renderItem,
   emptyMessage = 'Aucun élément trouvé',
   loading = false,
-  className = ''
+  className = '',
 }: GridProps) {
   if (loading) {
     return (
@@ -42,9 +41,5 @@ export function Grid({
     );
   }
 
-  return (
-    <div className={`grid ${className}`}>
-      {items.map(renderItem)}
-    </div>
-  );
+  return <div className={`grid ${className}`}>{items.map(renderItem)}</div>;
 }

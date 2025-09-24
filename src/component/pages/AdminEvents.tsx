@@ -1,6 +1,14 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaCalendar, FaPen, FaTrash, FaPlus, FaMagnifyingGlass, FaEye, FaUsers } from 'react-icons/fa6';
+import {
+  FaCalendar,
+  FaPen,
+  FaTrash,
+  FaPlus,
+  FaMagnifyingGlass,
+  FaEye,
+  FaUsers,
+} from 'react-icons/fa6';
 import './style/admin.css';
 
 interface Event {
@@ -17,12 +25,12 @@ export function AdminEvents() {
   const [events, setEvents] = useState<Event[]>([
     {
       id: 1,
-      title: 'Tournoi d\'hiver 2024',
+      title: "Tournoi d'hiver 2024",
       date: '2024-02-15',
-      location: 'Parc de la Tête d\'Or, Lyon',
+      location: "Parc de la Tête d'Or, Lyon",
       status: 'upcoming',
       participants: 24,
-      maxParticipants: 32
+      maxParticipants: 32,
     },
     {
       id: 2,
@@ -31,7 +39,7 @@ export function AdminEvents() {
       location: 'Place Bellecour, Lyon',
       status: 'ongoing',
       participants: 15,
-      maxParticipants: 20
+      maxParticipants: 20,
     },
     {
       id: 3,
@@ -40,15 +48,16 @@ export function AdminEvents() {
       location: 'Stade de Gerland, Lyon',
       status: 'completed',
       participants: 48,
-      maxParticipants: 48
-    }
+      maxParticipants: 48,
+    },
   ]);
 
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredEvents = events.filter(event =>
-    event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    event.location.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredEvents = events.filter(
+    event =>
+      event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      event.location.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const handleDeleteEvent = (eventId: number) => {
@@ -57,36 +66,18 @@ export function AdminEvents() {
     }
   };
 
-  const handleToggleStatus = (eventId: number) => {
-    setEvents(events.map(event => {
-      if (event.id === eventId) {
-        let newStatus: Event['status'];
-        switch (event.status) {
-          case 'upcoming':
-            newStatus = 'ongoing';
-            break;
-          case 'ongoing':
-            newStatus = 'completed';
-            break;
-          case 'completed':
-            newStatus = 'upcoming';
-            break;
-          default:
-            newStatus = 'upcoming';
-        }
-        return { ...event, status: newStatus };
-      }
-      return event;
-    }));
-  };
-
   const getStatusLabel = (status: Event['status']) => {
     switch (status) {
-      case 'upcoming': return 'À venir';
-      case 'ongoing': return 'En cours';
-      case 'completed': return 'Terminé';
-      case 'cancelled': return 'Annulé';
-      default: return status;
+      case 'upcoming':
+        return 'À venir';
+      case 'ongoing':
+        return 'En cours';
+      case 'completed':
+        return 'Terminé';
+      case 'cancelled':
+        return 'Annulé';
+      default:
+        return status;
     }
   };
 
@@ -111,7 +102,7 @@ export function AdminEvents() {
             type="text"
             placeholder="Rechercher par titre ou lieu..."
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={e => setSearchTerm(e.target.value)}
           />
         </div>
       </div>
@@ -138,7 +129,9 @@ export function AdminEvents() {
               </div>
               <div className="detail-item">
                 <FaUsers />
-                <span>{event.participants}/{event.maxParticipants} participants</span>
+                <span>
+                  {event.participants}/{event.maxParticipants} participants
+                </span>
               </div>
             </div>
 
@@ -146,7 +139,10 @@ export function AdminEvents() {
               <Link to={`/admin/events/${event.id}`} className="btn-secondary">
                 <FaEye /> Voir détails
               </Link>
-              <Link to={`/admin/events/${event.id}/edit`} className="btn-secondary">
+              <Link
+                to={`/admin/events/${event.id}/edit`}
+                className="btn-secondary"
+              >
                 <FaPen /> Modifier
               </Link>
               <button

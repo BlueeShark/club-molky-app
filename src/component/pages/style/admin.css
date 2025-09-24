@@ -56,37 +56,24 @@
   margin-bottom: 0.5rem;
 }
 
-.nav-link {
-  display: flex;
-  align-items: center;
-  padding: 0.75rem 1.5rem;
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-weight: 500;
-}
 
-.nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-}
 
-.nav-link.active {
+.navlink.active {
   background-color: rgba(255, 255, 255, 0.2);
   color: white;
 }
 
-.nav-link svg {
+.navlink svg {
   margin-right: 0.75rem;
   font-size: 1.1rem;
   min-width: 20px;
 }
 
-.admin-sidebar.closed .nav-link span {
+.admin-sidebar.closed .navlink span {
   display: none;
 }
 
-.admin-sidebar.closed .nav-link {
+.admin-sidebar.closed .navlink {
   justify-content: center;
   padding: 0.75rem;
 }
@@ -798,7 +785,9 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .form-group input:focus,

@@ -3,7 +3,7 @@
  * Utilisée pour les sections avec titre et actions
  */
 
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { Button } from '../atoms/Button';
 
 interface SectionProps {
@@ -25,7 +25,7 @@ export function Section({
   subtitle,
   actions = [],
   children,
-  className = ''
+  className = '',
 }: SectionProps) {
   return (
     <section className={`section ${className}`}>
@@ -50,9 +50,7 @@ export function Section({
           </div>
         )}
       </div>
-      <div className="section__content">
-        {children}
-      </div>
+      <div className="section__content">{children}</div>
     </section>
   );
 }

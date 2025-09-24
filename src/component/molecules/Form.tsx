@@ -1,9 +1,9 @@
+import React from 'react';
 /**
  * MOLECULE: Formulaire réutilisable
  * Utilisé pour les formulaires de création et modification
  */
 
-import { ReactNode } from 'react';
 import { Button } from '../atoms/Button';
 import { FormField } from '../atoms/FormField';
 
@@ -13,7 +13,16 @@ interface FormProps {
   fields: {
     name: string;
     label?: string;
-    type?: 'text' | 'email' | 'password' | 'number' | 'date' | 'time' | 'url' | 'textarea' | 'select';
+    type?:
+      | 'text'
+      | 'email'
+      | 'password'
+      | 'number'
+      | 'date'
+      | 'time'
+      | 'url'
+      | 'textarea'
+      | 'select';
     placeholder?: string;
     required?: boolean;
     options?: { value: string; label: string }[];
@@ -24,7 +33,11 @@ interface FormProps {
   }[];
   values: Record<string, any>;
   errors: Record<string, string>;
-  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
+  onChange: (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => void;
   onSubmit: (e: React.FormEvent) => void;
   onCancel?: () => void;
   loading?: boolean;
@@ -41,7 +54,7 @@ export function Form({
   onSubmit,
   onCancel,
   loading = false,
-  className = ''
+  className = '',
 }: FormProps) {
   return (
     <form onSubmit={onSubmit} className={`form ${className}`}>
@@ -51,7 +64,7 @@ export function Form({
       </div>
 
       <div className="form__content">
-        {fields.map((field, index) => (
+        {fields.map(field => (
           <FormField
             key={field.name}
             name={field.name}
@@ -83,11 +96,7 @@ export function Form({
             Annuler
           </Button>
         )}
-        <Button
-          type="submit"
-          variant="primary"
-          loading={loading}
-        >
+        <Button type="submit" variant="primary" loading={loading}>
           {loading ? 'Chargement...' : 'Enregistrer'}
         </Button>
       </div>
