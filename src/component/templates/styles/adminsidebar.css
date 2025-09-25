@@ -1,0 +1,140 @@
+/* src/component/templates/styles/adminsidebar.css */
+
+:root {
+  --admin-bg: #2c3e50; /* Bleu nuit */
+  --admin-text: #ecf0f1; /* Gris clair */
+  --admin-primary: #3498db; /* Bleu vif */
+  --admin-hover-bg: #34495e; /* Gris bleu foncé */
+}
+
+/* Style de base de la sidebar */
+.admin-sidebar {
+  background-color: var(--admin-bg);
+  color: var(--admin-text);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  transition: width 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Styles pour la sidebar ouverte et fermée */
+.admin-sidebar.open {
+  width: 250px;
+}
+.admin-sidebar.closed {
+  width: 80px;
+}
+
+/* En-tête de la sidebar */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 1.2rem;
+  border-bottom: 1px solid var(--admin-hover-bg);
+}
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  white-space: nowrap; /* Empêche le texte de passer à la ligne */
+  margin-left: 1rem;
+}
+
+/* Bouton pour ouvrir/fermer sur mobile (ou version réduite) */
+.sidebar-toggle-mobile {
+  background: none;
+  border: none;
+  color: var(--admin-text);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Navigation principale */
+.sidebar-nav {
+  flex-grow: 1; /* Prend toute la place verticale disponible */
+  margin-top: 1rem;
+}
+
+.sidebar-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ▼▼▼ CORRECTION APPLIQUÉE ICI ▼▼▼ */
+
+/* Liens de navigation */
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  color: var(--admin-text);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden; /* Cache le texte qui dépasse */
+}
+
+.sidebar-link:hover {
+  background-color: var(--admin-hover-bg);
+}
+
+/* Style pour le lien actif */
+.sidebar-link.active {
+  background-color: var(--admin-primary);
+  font-weight: bold;
+}
+
+/* Icônes dans les liens */
+.sidebar-link svg {
+  font-size: 1.5rem;
+  min-width: 30px; /* Assure un alignement parfait même quand la sidebar est fermée */
+}
+
+/* Texte à côté de l'icône */
+.sidebar-link span {
+  margin-left: 1rem;
+}
+
+/* ▲▲▲ FIN DE LA CORRECTION ▲▲▲ */
+
+/* Pied de page de la sidebar (pour la déconnexion) */
+.sidebar-footer {
+  padding: 1rem;
+  border-top: 1px solid var(--admin-hover-bg);
+}
+
+.logout-btn {
+  width: 100%;
+  background: none;
+  border: 1px solid var(--admin-text);
+  border-radius: 5px;
+  color: var(--admin-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem;
+  font-size: 1rem;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.logout-btn:hover {
+  background-color: var(--admin-primary);
+  border-color: var(--admin-primary);
+}
+
+/* Cache le texte du bouton logout quand la sidebar est fermée */
+.admin-sidebar.closed .logout-btn span {
+  display: none;
+}
+.admin-sidebar.open .logout-btn span {
+  margin-left: 0.5rem;
+}

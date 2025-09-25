@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { AdminSidebar } from './AdminSidebar';
-import './styles/adminlayout.css';
+import '../pages/style/admin.css';
 
 export function AdminLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -17,6 +17,9 @@ export function AdminLayout() {
         className={`admin-main ${sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}
       >
         <div className="admin-header">
+          <button className="sidebar-toggle" onClick={toggleSidebar}>
+            ☰
+          </button>
           <h1>Administration CRHOM</h1>
         </div>
         <div className="admin-content">

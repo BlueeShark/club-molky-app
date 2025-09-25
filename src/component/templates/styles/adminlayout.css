@@ -1,0 +1,55 @@
+/* src/component/templates/styles/adminlayout.css */
+
+/* Conteneur global de la page admin */
+.admin-layout {
+  display: flex;
+  background-color: #f8f9fa; /* Fond clair pour le contenu */
+}
+
+/* Contenu principal (à droite de la sidebar) */
+.admin-main {
+  flex-grow: 1; /* Prend toute la largeur restante */
+  /* Transition douce pour le changement de marge */
+  transition: margin-left 0.3s ease-in-out;
+}
+
+/* Position du contenu quand la sidebar est OUVERTE */
+.admin-main.sidebar-open {
+  margin-left: 250px; /* Doit correspondre à la largeur de la sidebar ouverte */
+}
+
+/* Position du contenu quand la sidebar est FERMÉE */
+.admin-main.sidebar-closed {
+  margin-left: 80px; /* Doit correspondre à la largeur de la sidebar fermée */
+}
+
+/* En-tête à l'intérieur du contenu principal */
+.admin-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: white;
+  border-bottom: 1px solid #dee2e6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.admin-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #343a40;
+}
+
+/* Bouton pour ouvrir/fermer la sidebar */
+.sidebar-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 1.5rem;
+  color: #495057;
+}
+
+/* Conteneur du contenu dynamique (le tableau, le formulaire, etc.) */
+.admin-content {
+  padding: 2rem;
+}
