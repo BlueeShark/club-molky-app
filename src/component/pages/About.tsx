@@ -4,7 +4,7 @@ export function About() {
       {/* Bannière */}
       <div style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
         <img
-          src="../../../public/gia.png"
+          src="/gia.png"
           className="imgs"
           alt="Équipe CRHOM"
           style={{ width: '100%', objectFit: 'cover', height: '500px' }}

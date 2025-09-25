@@ -26,7 +26,7 @@ const AddEventForm = () => {
     setMessage('');
 
     try {
-      const response = await fetch(`${API_URL}/activities`, {
+      const response = await fetch(`${API_URL}/api/activities`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

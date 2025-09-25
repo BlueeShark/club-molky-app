@@ -20,7 +20,7 @@ export const AdminEvents = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    fetch(`${API_URL}/activities`)
+    fetch(`${API_URL}/api/activities`)
       .then(res => res.json())
       .then(data => setActivities(data.data || data)) // Gère les deux formats de réponse
       .catch(() => setError('Erreur de chargement des événements.'));
@@ -29,7 +29,7 @@ export const AdminEvents = () => {
   const handleDelete = async (id: number) => {
     if (window.confirm('Êtes-vous sûr de vouloir supprimer cet événement ?')) {
       try {
-        const response = await fetch(`${API_URL}/activities/${id}`, {
+        const response = await fetch(`${API_URL}/api/activities/${id}`, {
           method: 'DELETE',
         });
         if (!response.ok) throw new Error('La suppression a échoué.');
