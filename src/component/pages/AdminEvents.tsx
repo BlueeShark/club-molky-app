@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'; // Pour le bouton "Modifier"
 // Importez un fichier CSS si vous le souhaitez, ex:
+import { API_URL } from '../../services/api';
 import './style/admin.css';
 
 interface Activity {
@@ -19,7 +20,7 @@ export const AdminEvents = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/activities')
+    fetch(`${API_URL}/activities`)
       .then(res => res.json())
       .then(data => setActivities(data.data || data)) // Gère les deux formats de réponse
       .catch(() => setError('Erreur de chargement des événements.'));
@@ -28,12 +29,9 @@ export const AdminEvents = () => {
   const handleDelete = async (id: number) => {
     if (window.confirm('Êtes-vous sûr de vouloir supprimer cet événement ?')) {
       try {
-        const response = await fetch(
-          `http://localhost:8000/api/activities/${id}`,
-          {
-            method: 'DELETE',
-          }
-        );
+        const response = await fetch(`${API_URL}/activities/${id}`, {
+          method: 'DELETE',
+        });
         if (!response.ok) throw new Error('La suppression a échoué.');
         // Met à jour la liste en retirant l'élément supprimé
         setActivities(activities.filter(activity => activity.id !== id));

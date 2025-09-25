@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 // On importe le fichier CSS que nous allons créer juste après
+import { API_URL } from '../../services/api';
 import '../pages/style/events.css';
 
 // On définit un "type" pour nos données, c'est une bonne pratique avec TypeScript
@@ -25,8 +26,7 @@ const EventsList = () => {
     const fetchActivities = async () => {
       try {
         // L'URL de votre API pour récupérer les activités
-        const API_URL = 'http://localhost:8000/api/activities';
-        const response = await fetch(API_URL);
+        const response = await fetch(`${API_URL}/activities`);
 
         if (!response.ok) {
           throw new Error('La récupération des données a échoué.');

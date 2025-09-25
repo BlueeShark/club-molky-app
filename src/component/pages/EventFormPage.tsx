@@ -1,6 +1,7 @@
 // src/component/pages/EventFormPage.tsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { API_URL } from '../../services/api';
 import './style/eventformpage.css';
 
 interface FormData {
@@ -32,9 +33,7 @@ const EventFormPage = () => {
 
     const fetchEventData = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:8000/api/activities/${id}`
-        );
+        const response = await fetch(`${API_URL}/activities/${id}`);
         if (!response.ok) {
           throw new Error("L'événement n'a pas pu être chargé.");
         }
@@ -78,8 +77,8 @@ const EventFormPage = () => {
     // ... (votre code handleSubmit reste le même)
     e.preventDefault();
     const url = isEditMode
-      ? `http://localhost:8000/api/activities/${id}`
-      : 'http://localhost:8000/api/activities';
+      ? `${API_URL}/activities/${id}`
+      : `${API_URL}/activities`;
     const method = isEditMode ? 'PUT' : 'POST';
 
     try {
