@@ -33,7 +33,7 @@ const EventFormPage = () => {
 
     const fetchEventData = async () => {
       try {
-        const response = await fetch(`${API_URL}/activities/${id}`);
+        const response = await fetch(`${API_URL}/api/activities/${id}`);
         if (!response.ok) {
           throw new Error("L'événement n'a pas pu être chargé.");
         }
@@ -77,8 +77,8 @@ const EventFormPage = () => {
     // ... (votre code handleSubmit reste le même)
     e.preventDefault();
     const url = isEditMode
-      ? `${API_URL}/activities/${id}`
-      : `${API_URL}/activities`;
+      ? `${API_URL}/api/activities/${id}`
+      : `${API_URL}/api/activities`;
     const method = isEditMode ? 'PUT' : 'POST';
 
     try {
