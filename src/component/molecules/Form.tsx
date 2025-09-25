@@ -1,9 +1,9 @@
+import React from 'react';
 /**
  * MOLECULE: Formulaire réutilisable
  * Utilisé pour les formulaires de création et modification
  */
 
-import { ReactNode } from 'react';
 import { Button } from '../atoms/Button';
 import { FormField } from '../atoms/FormField';
 
@@ -64,7 +64,7 @@ export function Form({
       </div>
 
       <div className="form__content">
-        {fields.map((field, index) => (
+        {fields.map(field => (
           <FormField
             key={field.name}
             name={field.name}

@@ -12,7 +12,7 @@ import {
 } from 'react-icons/fa6';
 import './style/admin.css';
 
-interface EventDetail {
+interface EventDetailType {
   id: number;
   title: string;
   description: string;
@@ -30,7 +30,7 @@ interface EventDetail {
 }
 
 // Mock data - replace with API call
-const mockEventDetail: EventDetail = {
+const mockEventDetail: EventDetailType = {
   id: 1,
   title: 'Championnat de Mölkky 2024',
   description:
@@ -98,7 +98,7 @@ const getCategoryLabel = (category: string) => {
 export function EventDetail() {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const [event, setEvent] = useState<EventDetail | null>(null);
+  const [event, setEvent] = useState<EventDetailType | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

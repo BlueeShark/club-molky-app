@@ -1,6 +1,5 @@
 // src/component/pages/Event.tsx
 
-import React from 'react';
 import EventsList from '../organisms/EventsList';
 
 // Le composant est bien nommé "Event" pour correspondre au routeur

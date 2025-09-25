@@ -3,7 +3,7 @@
  * Utilisée pour afficher les statistiques dans le dashboard
  */
 
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 interface StatCardProps {
   icon: ReactNode;

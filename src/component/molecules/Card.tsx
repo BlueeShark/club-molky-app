@@ -3,14 +3,14 @@
  * Utilisée pour afficher les événements, actualités, utilisateurs
  */
 
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '../atoms/Button';
 import { Badge } from '../atoms/Badge';
+import { Button } from '../atoms/Button';
 import { IconText } from '../atoms/IconText';
 
 interface CardProps {
-  id: number;
+  _id: number;
   title: string;
   status: string;
   details: { icon: ReactNode; text: string }[];
@@ -25,7 +25,6 @@ interface CardProps {
 }
 
 export function Card({
-  id,
   title,
   status,
   details,
@@ -54,7 +53,6 @@ export function Card({
 
   const renderAction = (action: CardProps['actions'][0], index: number) => {
     const buttonProps = {
-      key: index,
       variant: action.variant,
       onClick: action.onClick,
       children: (

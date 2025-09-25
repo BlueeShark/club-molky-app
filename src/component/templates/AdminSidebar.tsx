@@ -1,13 +1,13 @@
-import { NavLink } from 'react-router-dom';
 import {
-  FaChartSimple,
-  FaUsers,
-  FaCalendar,
-  FaNewspaper,
-  FaGear,
   FaArrowRightFromBracket,
   FaBars,
+  FaCalendar,
+  FaChartSimple,
+  FaGear,
+  FaNewspaper,
+  FaUsers
 } from 'react-icons/fa6';
+import { NavLink } from 'react-router-dom';
 import './styles/adminsidebar.css';
 
 interface AdminSidebarProps {

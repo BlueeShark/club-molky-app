@@ -3,8 +3,7 @@
  * Utilisée pour afficher les listes d'éléments (événements, actualités, utilisateurs)
  */
 
-import { ReactNode } from 'react';
-import { Card } from './Card';
+import type { ReactNode } from 'react';
 
 interface GridProps {
   items: any[];

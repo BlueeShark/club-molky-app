@@ -3,7 +3,7 @@
  * Utilisé pour les détails (date, lieu, participants, etc.)
  */
 
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 interface IconTextProps {
   icon: ReactNode;

@@ -1,3 +1,4 @@
+import React from 'react';
 /**
  * ATOM: Bouton de base réutilisable
  * Utilisé dans toute l'application pour les actions principales
