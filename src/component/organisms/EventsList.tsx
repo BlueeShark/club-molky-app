@@ -1,6 +1,6 @@
 // src/components/organisms/EventsList.tsx
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 // On importe le fichier CSS que nous allons créer juste après
 import '../pages/style/events.css';
 
@@ -25,7 +25,7 @@ const EventsList = () => {
     const fetchActivities = async () => {
       try {
         // L'URL de votre API pour récupérer les activités
-        const API_URL = 'http://localhost:3000/api/activities';
+        const API_URL = 'http://localhost:8000/api/activities';
         const response = await fetch(API_URL);
 
         if (!response.ok) {
