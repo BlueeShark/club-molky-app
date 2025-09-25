@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import { FaFacebook, FaPhone, FaEnvelope } from "react-icons/fa";
-import "./styles/footer.css";
+import { Link } from 'react-router-dom';
+import { FaFacebook, FaPhone, FaEnvelope } from 'react-icons/fa';
+import './styles/footer.css';
 
 export const Footer = () => {
   return (

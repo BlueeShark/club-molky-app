@@ -1,0 +1,107 @@
+/* src/component/pages/style/eventformpage.css */
+
+/* Conteneur principal pour centrer le formulaire */
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Aligne en haut */
+  padding: 2rem 1rem;
+  background-color: #f4f7f6; /* Un fond légèrement gris pour la page */
+  min-height: 80vh;
+}
+
+/* Le formulaire lui-même */
+.add-event-form {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* Espace entre les éléments */
+}
+
+/* Titre du formulaire (Ajouter/Modifier) */
+.add-event-form h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #2c3e50;
+}
+
+/* Étiquettes (Labels) */
+.add-event-form label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #34495e;
+  margin-bottom: -10px; /* Rapproche le label de son champ */
+}
+
+/* Styles pour tous les champs de saisie */
+.add-event-form input[type='text'],
+.add-event-form input[type='date'],
+.add-event-form input[type='number'],
+.add-event-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid #bdc3c7;
+  border-radius: 8px;
+  box-sizing: border-box; /* Important pour que le padding n'augmente pas la largeur */
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+/* Style pour la zone de texte */
+.add-event-form textarea {
+  min-height: 120px;
+  resize: vertical; /* Permet de redimensionner verticalement */
+}
+
+/* Met en surbrillance le champ quand on clique dessus */
+.add-event-form input:focus,
+.add-event-form textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Bouton de soumission */
+.add-event-form button {
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #27ae60; /* Un vert engageant */
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 1rem;
+}
+
+.add-event-form button:hover {
+  background-color: #229954;
+}
+
+/* Messages de statut (succès ou erreur) */
+.form-message {
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.success-message {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+}

@@ -1,5 +1,6 @@
 /* === Global fix for horizontal overflow === */
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -53,10 +54,9 @@ html, body {
   border: none;
   cursor: pointer;
   color: #2575fc;
-    margin-left: auto; /* pousse le bouton à droite */
+  margin-left: auto; /* pousse le bouton à droite */
   z-index: 10000; /* au-dessus du menu ouvert */
 }
-
 
 /* === Responsive styles === */
 @media (max-width: 820px) {
@@ -93,9 +93,3 @@ html, body {
     box-sizing: border-box;
   }
 }
-
-
-
-
-
-
