@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx';
 import { About } from './component/pages/About.tsx';
+import { AdminEvents } from './component/pages/AdminEvents.tsx';
 import Event from './component/pages/Event.tsx';
+import EventFormPage from './component/pages/EventFormPage.tsx';
 import { Home } from './component/pages/Home.tsx';
 import { News } from './component/pages/News.tsx';
 import { AdminLayout } from './component/templates/AdminLayout.tsx';
 import './index.css';
-import EventFormPage from './component/pages/EventFormPage.tsx';
-import { AdminEvents } from './component/pages/AdminEvents.tsx';
 
 const router = createBrowserRouter([
   {
@@ -39,21 +39,15 @@ const router = createBrowserRouter([
     element: <AdminLayout />,
     children: [
       {
-        path: '/admin/events/create', // L'URL pour accéder au formulaire
-        element: <EventFormPage />, // Le composant à afficher
-      },
-      {
-        path: '/admin/events',
+        path: '/admin/events', // ✅ Route générale en premier
         element: <AdminEvents />,
       },
-      // La page du formulaire pour la CRÉATION
       {
-        path: '/admin/events/create',
+        path: '/admin/events/create', // ✅ Route spécifique avant la route avec paramètre
         element: <EventFormPage />,
       },
-      // La page du formulaire pour la MODIFICATION
       {
-        path: '/admin/events/edit/:id', // :id est un paramètre dynamique
+        path: '/admin/events/edit/:id', // ✅ Route avec paramètre en dernier
         element: <EventFormPage />,
       },
     ],
