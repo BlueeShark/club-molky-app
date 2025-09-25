@@ -6,7 +6,6 @@
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../atoms/Button';
-import { Badge } from '../atoms/Badge';
 import { IconText } from '../atoms/IconText';
 
 interface CardProps {
