@@ -26,7 +26,7 @@ const EventsList = () => {
     const fetchActivities = async () => {
       try {
         // L'URL de votre API pour récupérer les activités
-        const response = await fetch(`${API_URL}/activities`);
+        const response = await fetch(`${API_URL}/api/activities`);
 
         if (!response.ok) {
           throw new Error('La récupération des données a échoué.');
