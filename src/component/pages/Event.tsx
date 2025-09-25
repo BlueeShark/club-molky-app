@@ -1,35 +1,20 @@
-import { Carte } from '../atoms/carte';
-import { AdminDashboard } from './AdminDashboard';
-import './envent.css';
+// src/component/pages/Event.tsx
 
-export function Event() {
+import React from 'react';
+import EventsList from '../organisms/EventsList';
+
+// Le composant est bien nommé "Event" pour correspondre au routeur
+const Event = () => {
   return (
-    <div>
-      <div className="headers">
-        <input
-          type="search"
-          placeholder="Rechercher..."
-          name="rechercher"
-          className="search"
-        />
-        <button className="btnHome">Rechercher</button>
-        <br />
-        <select name="Date2" id="un" className="select" aria-label="Date">
-          <option value="">Date</option>
-        </select>
-        <select name="Date2" id="un" className="select" aria-label="Date">
-          <option value="">Type</option>
-        </select>
-        <select name="Date2" id="un" className="select" aria-label="Date">
-          <option value="">Tournois</option>
-        </select>
-      </div>
-      <div className="cartesss">
-        <Carte />
-        <Carte />
-      </div>
-
-      <AdminDashboard></AdminDashboard>
+    <div className="page-container">
+      <h1 style={{ textAlign: 'center', margin: '2rem 0' }}>
+        Les Événements du Club
+      </h1>
+      <EventsList />
     </div>
   );
-}
+};
+
+// La ligne la plus importante : on exporte le composant "Event"
+// Sans cette ligne, le routeur ne pourrait pas le trouver.
+export default Event;

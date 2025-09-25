@@ -1,5 +1,11 @@
 import { useState } from 'react';
-import { FaPen, FaTrash, FaPlus, FaMagnifyingGlass, FaEye } from 'react-icons/fa6';
+import {
+  FaPen,
+  FaTrash,
+  FaPlus,
+  FaMagnifyingGlass,
+  FaEye,
+} from 'react-icons/fa6';
 import './style/admin.css';
 
 interface News {
@@ -17,11 +23,11 @@ export function AdminNews() {
     {
       id: 1,
       title: 'Nouveau tournoi annoncé pour février',
-      excerpt: 'Le club organise un grand tournoi d\'hiver...',
+      excerpt: "Le club organise un grand tournoi d'hiver...",
       author: 'Marie Martin',
       publishDate: '2024-01-15',
       status: 'published',
-      views: 245
+      views: 245,
     },
     {
       id: 2,
@@ -30,61 +36,70 @@ export function AdminNews() {
       author: 'Jean Dupont',
       publishDate: '2024-01-10',
       status: 'published',
-      views: 189
+      views: 189,
     },
     {
       id: 3,
-      title: 'Nouvelle saison d\'initiation',
-      excerpt: 'Le club lance ses sessions d\'initiation au Mölkky...',
+      title: "Nouvelle saison d'initiation",
+      excerpt: "Le club lance ses sessions d'initiation au Mölkky...",
       author: 'Pierre Durand',
       publishDate: '2024-01-08',
       status: 'draft',
-      views: 0
-    }
+      views: 0,
+    },
   ]);
 
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredNews = news.filter(article =>
-    article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    article.author.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredNews = news.filter(
+    article =>
+      article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      article.author.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const handleDeleteNews = (newsId: number) => {
-    if (window.confirm('Êtes-vous sûr de vouloir supprimer cette actualité ?')) {
+    if (
+      window.confirm('Êtes-vous sûr de vouloir supprimer cette actualité ?')
+    ) {
       setNews(news.filter(article => article.id !== newsId));
     }
   };
 
   const handleToggleStatus = (newsId: number) => {
-    setNews(news.map(article => {
-      if (article.id === newsId) {
-        let newStatus: News['status'];
-        switch (article.status) {
-          case 'published':
-            newStatus = 'draft';
-            break;
-          case 'draft':
-            newStatus = 'published';
-            break;
-          case 'archived':
-            newStatus = 'published';
-            break;
-          default:
-            newStatus = 'draft';
+    setNews(
+      news.map(article => {
+        if (article.id === newsId) {
+          let newStatus: News['status'];
+          switch (article.status) {
+            case 'published':
+              newStatus = 'draft';
+              break;
+            case 'draft':
+              newStatus = 'published';
+              break;
+            case 'archived':
+              newStatus = 'published';
+              break;
+            default:
+              newStatus = 'draft';
+          }
+          return { ...article, status: newStatus };
         }
-        return { ...article, status: newStatus };
-      }
-      return article;
-    }));
+        return article;
+      })
+    );
   };
 
   const getStatusLabel = (status: News['status']) => {
     switch (status) {
-      case 'published': return 'Publié';
-      case 'draft': return 'Brouillon';
-      case 'archived': return 'Archivé';
-      default: return status;
+      case 'published':
+        return 'Publié';
+      case 'draft':
+        return 'Brouillon';
+      case 'archived':
+        return 'Archivé';
+      default:
+        return status;
     }
   };
 
@@ -109,7 +124,7 @@ export function AdminNews() {
             type="text"
             placeholder="Rechercher par titre ou auteur..."
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={e => setSearchTerm(e.target.value)}
           />
         </div>
       </div>
@@ -120,7 +135,9 @@ export function AdminNews() {
           <div key={article.id} className="news-card">
             <div className="news-header">
               <h3>{article.title}</h3>
-              <span className={`status-badge ${getStatusClass(article.status)}`}>
+              <span
+                className={`status-badge ${getStatusClass(article.status)}`}
+              >
                 {getStatusLabel(article.status)}
               </span>
             </div>
@@ -134,7 +151,8 @@ export function AdminNews() {
                 <strong>Auteur:</strong> {article.author}
               </div>
               <div className="meta-item">
-                <strong>Publié le:</strong> {new Date(article.publishDate).toLocaleDateString('fr-FR')}
+                <strong>Publié le:</strong>{' '}
+                {new Date(article.publishDate).toLocaleDateString('fr-FR')}
               </div>
               <div className="meta-item">
                 <FaEye /> {article.views} vues

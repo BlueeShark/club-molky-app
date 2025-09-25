@@ -1,0 +1,36 @@
+.navbar {
+  background-color: white; /* fond blanc */
+  padding: 15px 30px;
+  display: flex;
+  align-items: center; /* aligne verticalement logo et liens */
+  justify-content: flex-start; /* logo à gauche, liens à droite */
+  border-bottom: 2px solid #ddd;
+  border-color: white;
+  margin-top: 20px; /* espace par rapport au haut de la page */
+  position: relative; /* pour le centrage relatif */
+}
+
+.navbar-left .logo {
+  height: 95px; /* taille du logo */
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 70px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* centre horizontalement */
+}
+
+.nav-link {
+  color: #2575fc;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 26px;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #11f2c1;
+}

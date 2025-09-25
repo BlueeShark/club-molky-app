@@ -1,0 +1,59 @@
+/* src/pages/style/events.css */
+
+.events-container {
+  display: grid;
+  /* Crée des colonnes qui s'ajustent automatiquement à la taille de l'écran */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem; /* Espace entre les cartes */
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.event-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Assure que l'image ne dépasse pas les coins arrondis */
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.event-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Assure que l'image couvre bien la zone sans être déformée */
+}
+
+.event-card-content {
+  padding: 1.5rem;
+  flex-grow: 1; /* Permet au contenu de prendre toute la place restante */
+}
+
+.event-card-content h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.event-card-content p {
+  margin: 0.5rem 0;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Espace entre l'icône et le texte */
+}
+
+.event-card-date,
+.event-card-location {
+  font-size: 1rem;
+}

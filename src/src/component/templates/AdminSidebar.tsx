@@ -8,7 +8,6 @@ import {
   FaArrowRightFromBracket,
   FaBars,
 } from 'react-icons/fa6';
-import './styles/adminsidebar.css';
 
 interface AdminSidebarProps {
   isOpen: boolean;
@@ -35,9 +34,8 @@ export function AdminSidebar({ isOpen, onToggle }: AdminSidebarProps) {
           <li>
             <NavLink
               to="/admin"
-              // 👇 La correction est ici : "sidebar-link" au lieu de "nav-link"
               className={({ isActive }) =>
-                `sidebar-link ${isActive ? 'active' : ''}`
+                `nav-link ${isActive ? 'active' : ''}`
               }
               end
             >
@@ -49,7 +47,7 @@ export function AdminSidebar({ isOpen, onToggle }: AdminSidebarProps) {
             <NavLink
               to="/admin/users"
               className={({ isActive }) =>
-                `sidebar-link ${isActive ? 'active' : ''}`
+                `nav-link ${isActive ? 'active' : ''}`
               }
             >
               <FaUsers />
@@ -60,7 +58,7 @@ export function AdminSidebar({ isOpen, onToggle }: AdminSidebarProps) {
             <NavLink
               to="/admin/events"
               className={({ isActive }) =>
-                `sidebar-link ${isActive ? 'active' : ''}`
+                `nav-link ${isActive ? 'active' : ''}`
               }
             >
               <FaCalendar />
@@ -71,7 +69,7 @@ export function AdminSidebar({ isOpen, onToggle }: AdminSidebarProps) {
             <NavLink
               to="/admin/news"
               className={({ isActive }) =>
-                `sidebar-link ${isActive ? 'active' : ''}`
+                `nav-link ${isActive ? 'active' : ''}`
               }
             >
               <FaNewspaper />
@@ -82,7 +80,7 @@ export function AdminSidebar({ isOpen, onToggle }: AdminSidebarProps) {
             <NavLink
               to="/admin/settings"
               className={({ isActive }) =>
-                `sidebar-link ${isActive ? 'active' : ''}`
+                `nav-link ${isActive ? 'active' : ''}`
               }
             >
               <FaGear />

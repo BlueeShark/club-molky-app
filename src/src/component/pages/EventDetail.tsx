@@ -1,6 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { FaArrowLeft, FaPen, FaTrash, FaCalendar, FaLocationDot, FaUsers, FaEye, FaClock } from 'react-icons/fa6';
+import {
+  FaArrowLeft,
+  FaPen,
+  FaTrash,
+  FaCalendar,
+  FaLocationDot,
+  FaUsers,
+  FaEye,
+  FaClock,
+} from 'react-icons/fa6';
 import './style/admin.css';
 
 interface EventDetail {
@@ -24,7 +33,8 @@ interface EventDetail {
 const mockEventDetail: EventDetail = {
   id: 1,
   title: 'Championnat de Mölkky 2024',
-  description: 'Le championnat annuel de Mölkky du club avec des équipes de toute la région. Cet événement majeur rassemblera les meilleurs joueurs et équipes pour une compétition amicale mais intense. Les participants auront l\'occasion de démontrer leurs compétences et de remporter des prix prestigieux.',
+  description:
+    "Le championnat annuel de Mölkky du club avec des équipes de toute la région. Cet événement majeur rassemblera les meilleurs joueurs et équipes pour une compétition amicale mais intense. Les participants auront l'occasion de démontrer leurs compétences et de remporter des prix prestigieux.",
   date: '2024-06-15',
   time: '14:00',
   location: 'Stade municipal, 75001 Paris',
@@ -35,37 +45,53 @@ const mockEventDetail: EventDetail = {
   imageUrl: 'https://example.com/molky-event.jpg',
   author: 'Admin CRHOM',
   createdAt: '2024-01-15T10:00:00Z',
-  updatedAt: '2024-01-20T15:30:00Z'
+  updatedAt: '2024-01-20T15:30:00Z',
 };
 
 const getStatusClass = (status: string) => {
   switch (status) {
-    case 'upcoming': return 'upcoming';
-    case 'ongoing': return 'ongoing';
-    case 'completed': return 'completed';
-    case 'cancelled': return 'cancelled';
-    default: return 'upcoming';
+    case 'upcoming':
+      return 'upcoming';
+    case 'ongoing':
+      return 'ongoing';
+    case 'completed':
+      return 'completed';
+    case 'cancelled':
+      return 'cancelled';
+    default:
+      return 'upcoming';
   }
 };
 
 const getStatusLabel = (status: string) => {
   switch (status) {
-    case 'upcoming': return 'À venir';
-    case 'ongoing': return 'En cours';
-    case 'completed': return 'Terminé';
-    case 'cancelled': return 'Annulé';
-    default: return 'À venir';
+    case 'upcoming':
+      return 'À venir';
+    case 'ongoing':
+      return 'En cours';
+    case 'completed':
+      return 'Terminé';
+    case 'cancelled':
+      return 'Annulé';
+    default:
+      return 'À venir';
   }
 };
 
 const getCategoryLabel = (category: string) => {
   switch (category) {
-    case 'competition': return 'Compétition';
-    case 'training': return 'Entraînement';
-    case 'social': return 'Social';
-    case 'tournament': return 'Tournoi';
-    case 'workshop': return 'Atelier';
-    default: return category;
+    case 'competition':
+      return 'Compétition';
+    case 'training':
+      return 'Entraînement';
+    case 'social':
+      return 'Social';
+    case 'tournament':
+      return 'Tournoi';
+    case 'workshop':
+      return 'Atelier';
+    default:
+      return category;
   }
 };
 
@@ -85,7 +111,7 @@ export function EventDetail() {
         setEvent(mockEventDetail);
       } catch (error) {
         console.error('Error loading event:', error);
-        alert('Erreur lors du chargement de l\'événement');
+        alert("Erreur lors du chargement de l'événement");
         navigate('/admin/events');
       } finally {
         setLoading(false);
@@ -102,7 +128,11 @@ export function EventDetail() {
   };
 
   const handleDelete = () => {
-    if (window.confirm('Êtes-vous sûr de vouloir supprimer cet événement ? Cette action est irréversible.')) {
+    if (
+      window.confirm(
+        'Êtes-vous sûr de vouloir supprimer cet événement ? Cette action est irréversible.'
+      )
+    ) {
       // TODO: Implement API call to delete event
       console.log('Deleting event:', id);
       alert('Événement supprimé avec succès !');
@@ -192,7 +222,9 @@ export function EventDetail() {
                   <FaCalendar />
                   <div>
                     <strong>Date:</strong>
-                    <span>{new Date(event.date).toLocaleDateString('fr-FR')}</span>
+                    <span>
+                      {new Date(event.date).toLocaleDateString('fr-FR')}
+                    </span>
                   </div>
                 </div>
                 <div className="info-item">
@@ -213,7 +245,9 @@ export function EventDetail() {
                   <FaUsers />
                   <div>
                     <strong>Participants:</strong>
-                    <span>{event.participants}/{event.maxParticipants}</span>
+                    <span>
+                      {event.participants}/{event.maxParticipants}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -235,11 +269,15 @@ export function EventDetail() {
                 </div>
                 <div className="info-item">
                   <strong>Créé le:</strong>
-                  <span>{new Date(event.createdAt).toLocaleDateString('fr-FR')}</span>
+                  <span>
+                    {new Date(event.createdAt).toLocaleDateString('fr-FR')}
+                  </span>
                 </div>
                 <div className="info-item">
                   <strong>Modifié le:</strong>
-                  <span>{new Date(event.updatedAt).toLocaleDateString('fr-FR')}</span>
+                  <span>
+                    {new Date(event.updatedAt).toLocaleDateString('fr-FR')}
+                  </span>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft, FaFloppyDisk, FaXmark } from 'react-icons/fa6';
 import './style/admin.css';
 
@@ -15,59 +15,37 @@ interface EventFormData {
   imageUrl?: string;
 }
 
-// Mock data - replace with API call
-const mockEvent: EventFormData = {
-  title: 'Championnat de Mölkky 2024',
-  description: 'Le championnat annuel de Mölkky du club avec des équipes de toute la région.',
-  date: '2024-06-15',
-  time: '14:00',
-  location: 'Stade municipal, Paris',
-  maxParticipants: '32',
-  category: 'competition',
-  status: 'upcoming',
-  imageUrl: 'https://example.com/molky-event.jpg'
-};
-
-export function EditEvent() {
+export function CreateEvent() {
   const navigate = useNavigate();
-  const { id } = useParams<{ id: string }>();
-  const [formData, setFormData] = useState<EventFormData>(mockEvent);
+  const [formData, setFormData] = useState<EventFormData>({
+    title: '',
+    description: '',
+    date: '',
+    time: '',
+    location: '',
+    maxParticipants: '20',
+    category: 'competition',
+    status: 'upcoming',
+    imageUrl: '',
+  });
+
   const [errors, setErrors] = useState<Partial<EventFormData>>({});
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // TODO: Replace with API call to fetch event by ID
-    const loadEvent = async () => {
-      setLoading(true);
-      try {
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 500));
-        setFormData(mockEvent);
-      } catch (error) {
-        console.error('Error loading event:', error);
-        alert('Erreur lors du chargement de l\'événement');
-        navigate('/admin/events');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (id) {
-      loadEvent();
-    }
-  }, [id, navigate]);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
     // Clear error when user starts typing
     if (errors[name as keyof EventFormData]) {
       setErrors(prev => ({
         ...prev,
-        [name]: undefined
+        [name]: undefined,
       }));
     }
   };
@@ -76,11 +54,13 @@ export function EditEvent() {
     const newErrors: Partial<EventFormData> = {};
 
     if (!formData.title.trim()) newErrors.title = 'Le titre est requis';
-    if (!formData.description.trim()) newErrors.description = 'La description est requise';
+    if (!formData.description.trim())
+      newErrors.description = 'La description est requise';
     if (!formData.date) newErrors.date = 'La date est requise';
     if (!formData.time) newErrors.time = "L'heure est requise";
     if (!formData.location.trim()) newErrors.location = 'Le lieu est requis';
-    if (Number(formData.maxParticipants) < 1) newErrors.maxParticipants = 'Le nombre de participants doit être positif';
+    if (Number(formData.maxParticipants) < 1)
+      newErrors.maxParticipants = 'Le nombre de participants doit être positif';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -93,25 +73,17 @@ export function EditEvent() {
       return;
     }
 
-    // TODO: Implement API call to update event
-    console.log('Updating event:', formData);
+    // TODO: Implement API call to create event
+    console.log('Creating event:', formData);
 
-    // Simulate successful update
-    alert('Événement modifié avec succès !');
+    // Simulate successful creation
+    alert('Événement créé avec succès !');
     navigate('/admin/events');
   };
 
   const handleCancel = () => {
     navigate('/admin/events');
   };
-
-  if (loading) {
-    return (
-      <div className="admin-content">
-        <div className="loading">Chargement...</div>
-      </div>
-    );
-  }
 
   return (
     <div className="admin-content">
@@ -123,7 +95,7 @@ export function EditEvent() {
         >
           <FaArrowLeft /> Retour
         </button>
-        <h1>Modifier l'événement</h1>
+        <h1>Créer un événement</h1>
         <div></div> {/* Spacer for flex layout */}
       </div>
 
@@ -142,7 +114,9 @@ export function EditEvent() {
               className={errors.title ? 'error' : ''}
               placeholder="Ex: Championnat de Mölkky 2024"
             />
-            {errors.title && <span className="error-message">{errors.title}</span>}
+            {errors.title && (
+              <span className="error-message">{errors.title}</span>
+            )}
           </div>
 
           <div className="form-group">
@@ -156,7 +130,9 @@ export function EditEvent() {
               rows={4}
               placeholder="Décrivez l'événement en détail..."
             />
-            {errors.description && <span className="error-message">{errors.description}</span>}
+            {errors.description && (
+              <span className="error-message">{errors.description}</span>
+            )}
           </div>
 
           <div className="form-group">
@@ -190,7 +166,9 @@ export function EditEvent() {
                 onChange={handleInputChange}
                 className={errors.date ? 'error' : ''}
               />
-              {errors.date && <span className="error-message">{errors.date}</span>}
+              {errors.date && (
+                <span className="error-message">{errors.date}</span>
+              )}
             </div>
 
             <div className="form-group">
@@ -203,7 +181,9 @@ export function EditEvent() {
                 onChange={handleInputChange}
                 className={errors.time ? 'error' : ''}
               />
-              {errors.time && <span className="error-message">{errors.time}</span>}
+              {errors.time && (
+                <span className="error-message">{errors.time}</span>
+              )}
             </div>
           </div>
 
@@ -218,11 +198,15 @@ export function EditEvent() {
               className={errors.location ? 'error' : ''}
               placeholder="Ex: Stade municipal, Paris"
             />
-            {errors.location && <span className="error-message">{errors.location}</span>}
+            {errors.location && (
+              <span className="error-message">{errors.location}</span>
+            )}
           </div>
 
           <div className="form-group">
-            <label htmlFor="maxParticipants">Nombre maximum de participants *</label>
+            <label htmlFor="maxParticipants">
+              Nombre maximum de participants *
+            </label>
             <input
               type="number"
               id="maxParticipants"
@@ -232,7 +216,9 @@ export function EditEvent() {
               min="1"
               className={errors.maxParticipants ? 'error' : ''}
             />
-            {errors.maxParticipants && <span className="error-message">{errors.maxParticipants}</span>}
+            {errors.maxParticipants && (
+              <span className="error-message">{errors.maxParticipants}</span>
+            )}
           </div>
         </div>
 
@@ -268,11 +254,15 @@ export function EditEvent() {
         </div>
 
         <div className="form-actions">
-          <button type="button" className="btn-secondary" onClick={handleCancel}>
+          <button
+            type="button"
+            className="btn-secondary"
+            onClick={handleCancel}
+          >
             <FaXmark /> Annuler
           </button>
           <button type="submit" className="btn-primary">
-            <FaFloppyDisk /> Enregistrer les modifications
+            <FaFloppyDisk /> Créer l'événement
           </button>
         </div>
       </form>
