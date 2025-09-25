@@ -1,5 +1,4 @@
 // src/pages/NewEventPage.tsx
-import React from 'react';
 
 // On importe le composant formulaire que l'on vient de créer à l'étape 1
 import AddEventForm from '../organisms/AddEventForm';

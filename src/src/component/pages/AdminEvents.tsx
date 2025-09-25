@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import {
   FaCalendar,
-  FaPen,
-  FaTrash,
-  FaPlus,
-  FaMagnifyingGlass,
   FaEye,
+  FaMagnifyingGlass,
+  FaPen,
+  FaPlus,
+  FaTrash,
   FaUsers,
 } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 import './style/admin.css';
 
 interface Event {
@@ -64,31 +64,6 @@ export function AdminEvents() {
     if (window.confirm('Êtes-vous sûr de vouloir supprimer cet événement ?')) {
       setEvents(events.filter(event => event.id !== eventId));
     }
-  };
-
-  const handleToggleStatus = (eventId: number) => {
-    setEvents(
-      events.map(event => {
-        if (event.id === eventId) {
-          let newStatus: Event['status'];
-          switch (event.status) {
-            case 'upcoming':
-              newStatus = 'ongoing';
-              break;
-            case 'ongoing':
-              newStatus = 'completed';
-              break;
-            case 'completed':
-              newStatus = 'upcoming';
-              break;
-            default:
-              newStatus = 'upcoming';
-          }
-          return { ...event, status: newStatus };
-        }
-        return event;
-      })
-    );
   };
 
   const getStatusLabel = (status: Event['status']) => {

@@ -3,8 +3,9 @@
  * Utilisée pour afficher les événements, actualités, utilisateurs
  */
 
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import { Badge } from '../atoms/Badge';
 import { Button } from '../atoms/Button';
 import { IconText } from '../atoms/IconText';
 
@@ -24,7 +25,6 @@ interface CardProps {
 }
 
 export function Card({
-  id,
   title,
   status,
   details,
@@ -73,7 +73,7 @@ export function Card({
       );
     }
 
-    return <Button key={index} {...buttonProps} />;
+    return <Button {...buttonProps} />;
   };
 
   return (

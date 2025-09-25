@@ -2,6 +2,7 @@
  * ATOM: Barre de recherche réutilisable
  * Utilisée dans les pages de gestion (utilisateurs, événements, actualités)
  */
+import React from 'react';
 
 interface SearchBarProps {
   placeholder?: string;

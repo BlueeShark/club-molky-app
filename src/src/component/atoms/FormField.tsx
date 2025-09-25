@@ -2,10 +2,19 @@
  * ATOM: Champ de formulaire réutilisable
  * Utilisé pour tous les inputs, textareas et selects
  */
-
+import React from 'react';
 interface FormFieldProps {
   label?: string;
-  type?: 'text' | 'email' | 'password' | 'number' | 'date' | 'time' | 'url';
+  type?:
+    | 'text'
+    | 'email'
+    | 'password'
+    | 'number'
+    | 'date'
+    | 'time'
+    | 'url'
+    | 'select'
+    | 'textarea';
   placeholder?: string;
   value: string | number;
   onChange: (

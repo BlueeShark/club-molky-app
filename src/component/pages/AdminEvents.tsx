@@ -39,6 +39,7 @@ export const AdminEvents = () => {
         setActivities(activities.filter(activity => activity.id !== id));
       } catch (err) {
         setError('Erreur lors de la suppression.');
+        console.error(err);
       }
     }
   };

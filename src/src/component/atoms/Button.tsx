@@ -2,7 +2,7 @@
  * ATOM: Bouton de base réutilisable
  * Utilisé dans toute l'application pour les actions principales
  */
-
+import React from 'react';
 interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'danger';
   size?: 'sm' | 'md' | 'lg';

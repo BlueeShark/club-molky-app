@@ -3,7 +3,7 @@
  * Utilisé pour les formulaires de création et modification
  */
 
-import { ReactNode } from 'react';
+import React from 'react';
 import { Button } from '../atoms/Button';
 import { FormField } from '../atoms/FormField';
 
@@ -64,25 +64,63 @@ export function Form({
       </div>
 
       <div className="form__content">
-        {fields.map((field, index) => (
-          <FormField
-            key={field.name}
-            name={field.name}
-            label={field.label}
-            type={field.type}
-            placeholder={field.placeholder}
-            value={values[field.name] || ''}
-            onChange={onChange}
-            error={errors[field.name]}
-            required={field.required}
-            options={field.options}
-            rows={field.rows}
-            min={field.min}
-            max={field.max}
-            step={field.step}
-            className="form__field"
-          />
-        ))}
+        {fields.map(field => {
+          if (field.type === 'textarea') {
+            return (
+              <FormField
+                key={field.name}
+                name={field.name}
+                label={field.label}
+                // Do not pass type for textarea
+                placeholder={field.placeholder}
+                value={values[field.name] || ''}
+                onChange={onChange}
+                error={errors[field.name]}
+                required={field.required}
+                rows={field.rows}
+                className="form__field"
+                // Do not pass options, min, max, step for textarea
+              />
+            );
+          }
+          if (field.type === 'select') {
+            return (
+              <FormField
+                key={field.name}
+                name={field.name}
+                label={field.label}
+                // Do not pass type for select
+                placeholder={field.placeholder}
+                value={values[field.name] || ''}
+                onChange={onChange}
+                error={errors[field.name]}
+                required={field.required}
+                options={field.options}
+                className="form__field"
+                // Do not pass rows, min, max, step for select
+              />
+            );
+          }
+          // Default input types
+          return (
+            <FormField
+              key={field.name}
+              name={field.name}
+              label={field.label}
+              type={field.type}
+              placeholder={field.placeholder}
+              value={values[field.name] || ''}
+              onChange={onChange}
+              error={errors[field.name]}
+              required={field.required}
+              min={field.min}
+              max={field.max}
+              step={field.step}
+              className="form__field"
+              // Do not pass options, rows for default input
+            />
+          );
+        })}
       </div>
 
       <div className="form__actions">
