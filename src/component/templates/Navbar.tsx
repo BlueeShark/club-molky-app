@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
 import { useState } from 'react'; // 👉 ajouter ça !
+import { Link } from 'react-router-dom';
+import logo from '../../assets/logo site molky.jpg';
 import './styles/navbar.css'; // 🔗 import du CSS
-import logo from './logo site molky.jpg';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
